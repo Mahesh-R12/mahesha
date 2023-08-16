@@ -1,0 +1,21 @@
+A fast.lib file is a static library file that is used to check the set-up time where the delays are less, and hence the tool maps the design with a minimum cell area.
+Setup and Hold Times: The minimum time required for inputs to be stable before and after a clock edge. This information is used by VLSI design tools for synthesis, place-and-route, and timing analysis to optimize circuit performance, power consumption, and area utilization.
+fast. lib contains the number of cells, Area of the cell, Voltage, Current, leakage_power, capacitive_load, etc. 
+In this File, we have Functional expressions  which  was implemented in RTL by an user in their design.
+ Library (gpdk045wc):- specifies the library file and which is a generic physical design kit used with 45nm TSMC version.
+It will operate in the 1v,1ma and the time duration of 1ns.
+Default power supply voltage used is of 1.32v.
+This file have applied voltage(maximum voltage),leakage power, current rating , rise time , And fall time of the RTL file .
+This fast lib file is used to fabricate a chip using their own library by understanding consumers fast.lib file.
+pins can be configured with indexes and their values using delay template. delay template is used because we can access the index values in large number with less time in matrix method
+fast lib files have number of designs inside it . Example: ADDFHXL.
+we can access the any part of the file or line of the files using TCL script.
+Pins are of A,B,CI,CO.
+A & B are the input pins
+CI & CO are of sum and carry.
+The function for CO = (((AB)+(B CI)+(CI A))) this performs the carry function which is related to the pin A.
+Here we can also get to know about the cell fall time, rise time, power consumption and direction.
+Area required is of 0.0
+Pin S is used for Sum function ((A^B)^CI).
+It performs separate operation for each function using basic gates (CLKAND, CLKXOR, CLKOR, CLKBUF, CLKINV, CLKMX).
+It even combines the design of Flipflop. 
